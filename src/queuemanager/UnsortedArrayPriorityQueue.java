@@ -3,6 +3,11 @@ package queuemanager;
 /**
  * Created by Tom on 08/11/2015.
  */
+
+/**
+ * Implementation of the PriorityQueue ADT using an unsorted array for storage.
+ *
+ */
 public class UnsortedArrayPriorityQueue<T> implements PriorityQueue<T> {
     private final Object[] storage;
 
@@ -44,22 +49,47 @@ public class UnsortedArrayPriorityQueue<T> implements PriorityQueue<T> {
     public T head() throws QueueUnderflowException{
         int i = tailIndex;
 
+        Wrapper<T> max = ((Wrapper<T>) storage[0]);
+        while(i >= 0){
 
+            if (((Wrapper<T>) storage[i]).getPriority() > max.getPriority()) {
+                max = ((Wrapper<T>) storage[i]);
 
-        Wrapper<T> max = ((Wrapper<T>) storage[i]);
-        while(i >= capacity){
-
-            if (((Wrapper<T>) storage[i - 1]).getPriority() > max.getPriority()) {
-                max = ((Wrapper<T>) storage[i - 1]);
             }
+            i--;
         }
+
 
         return max.getItem();
     }
 
     @Override
     public void remove() throws QueueUnderflowException {
+        if (isEmpty()) {
+            /* No resizing implemented, but that would be a good enhancement.S */
+            throw new QueueUnderflowException();
+        } else {
 
+            int place = 0;
+            int i = tailIndex;
+            Wrapper<T> max = ((Wrapper<T>) storage[place]);
+            while(i > -1){
+
+                if (((Wrapper<T>) storage[i]).getPriority() > max.getPriority()) {
+                    max = ((Wrapper<T>) storage[i]);
+                    place = i;
+                }
+                i--;
+            }
+
+            System.out.println("Max is: "+ max.getItem());
+            storage[place] = null;
+
+            for (int x = place; x <= tailIndex; x ++){
+                storage[x] = storage[x+1];
+            }
+            tailIndex = tailIndex -1 ;
+        }
     }
 
 
