@@ -32,12 +32,10 @@ public class QueueManager {
                 System.out.println("Using a sorted array.");
                 break;
             case "ua":
-                // Uncomment the next two lines and remove the two below them
-                // once you have implemented this variant. And so on below.
-                //q = new UnsortedArrayPriorityQueue<>(8);
-                //System.out.println("Using an unsorted array.");
-                q = new SortedArrayPriorityQueue<>(8);
-                System.out.println("Unsorted array not implemented yet! Using a sorted array instead.");
+
+                q = new UnsortedArrayPriorityQueue<>(8);
+                System.out.println("Using an unsorted array.");
+
                 break;
             case "sl":
                 //q = new SortedLinkedPriorityQueue<>();
