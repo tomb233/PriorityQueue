@@ -17,7 +17,9 @@ public class Node<T> {
     public void printNode(){
         System.out.println(value + " ");
     }
-
+    public T getItem() {
+        return item;
+    }
     public int getPriority(){
         return value;
     }
