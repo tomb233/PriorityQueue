@@ -48,10 +48,9 @@ public class QueueManager {
 
                 break;
             case "h":
-                //q = new Heap<>(8);
-                //System.out.println("Using a heap.");
-                q = new SortedArrayPriorityQueue<>(8);
-                System.out.println("Heap not implemented yet! Using a sorted array instead.");
+                q = new Heap<>(8);
+                System.out.println("Using a heap.");
+
                 break;
             default:
                 q = new SortedArrayPriorityQueue<>(8);
