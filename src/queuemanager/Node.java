@@ -28,4 +28,11 @@ public class Node<T> {
         Node nextNode = next;
         return nextNode;
     }
+    public boolean returnPrevious(Node x){
+        boolean previous= false;
+        if(this.next == x){
+            previous = true;
+        }
+        return previous;
+    }
 }
