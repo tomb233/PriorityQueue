@@ -71,8 +71,8 @@ public class SortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
     public String toString() {
         String result = "";
         for (Node node1 = head; node1 != null; node1 = node1.next) {
-            System.out.println(node1.value);
-            result += node1.getPriority() + ", ";
+            result += node1.getItem()+", ";
+            result += node1.getPriority() + " | ";
         }
         return "List: " + result;
 
