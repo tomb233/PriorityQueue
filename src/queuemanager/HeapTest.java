@@ -36,24 +36,24 @@ public class HeapTest extends PriorityQueueTest{
         Object item = new Person("Tom");
         int priority = 5;
         instance.add(item,priority);
-        System.out.println(instance.toString()); //Print out each time we add so we know that the array is being sorted properly
+
         item = new Person ("Bill");
         priority = 2;
         instance.add(item,priority);
-        System.out.println(instance.toString());
+
         item = new Person ("Sarah");
         priority = 7;
         instance.add(item,priority);
-        System.out.println(instance.toString());
+
         item = new Person ("John");
         priority = 1;
         instance.add(item,priority);
-        System.out.println(instance.toString());
+
         item = new Person ("Ben");
         priority = 3;
         instance.add(item,priority);
-        System.out.println(instance.toString());
 
+        System.out.println(instance.toString()); //Print out each time we add so we know that the array is being sorted properly
 
     }
     @Test
@@ -143,6 +143,27 @@ public class HeapTest extends PriorityQueueTest{
         addData();
         System.out.println();
 
+    }
+
+    @Test
+    public void testResize() throws Exception{
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("Testing resize");
+        addData();
+        Object item = new Person("Tomm");
+        int priority = 15;
+        instance.add(item,priority);
+        System.out.println(instance.toString());
+        item = new Person ("Benny");
+        priority = 11;
+        instance.add(item, priority);
+        item = new Person ("Pam");
+        priority = 13;
+        instance.add(item,priority);
+        item = new Person ("Angela");
+        priority = 9;
+        instance.add(item,priority);
+        System.out.println(instance.toString());
     }
 
 

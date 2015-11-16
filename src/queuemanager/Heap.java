@@ -7,7 +7,7 @@ package queuemanager;
  */
 
 public class Heap<T> implements PriorityQueue<T> {
-
+    protected int DEFAULT_CAPACITY = 8;
     protected Object[] array;
     protected int size;
 
@@ -18,6 +18,7 @@ public class Heap<T> implements PriorityQueue<T> {
     public Heap(int s) {
         array = new Object[s];
         size = 0;
+        DEFAULT_CAPACITY = s;
     }
 
     @Override
@@ -46,6 +47,10 @@ public class Heap<T> implements PriorityQueue<T> {
     @Override
     public void add(T item, int priority) throws QueueOverflowException { //adds to heap
         size++;
+        System.out.println(size);
+        if(size >= DEFAULT_CAPACITY){
+            resize();
+        }
         int index = size-1;
         array[index] = new Wrapper<>(item, priority);
         bubbleUp();
@@ -58,7 +63,19 @@ public class Heap<T> implements PriorityQueue<T> {
         array[index2] = tmp;
         System.out.println("Moving " + array[index2] + " to position at " + array[index1]);
     }
+    protected void resize(){
 
+        DEFAULT_CAPACITY = DEFAULT_CAPACITY * 2;
+        Object[] tempArray = new Object[DEFAULT_CAPACITY];
+        System.out.println("Default capacity is now" + DEFAULT_CAPACITY);
+
+        for ( int i = 0; i < array.length; ++i ) {
+            tempArray[i] = array[i];
+        }
+        array = new Object[DEFAULT_CAPACITY];
+        array = tempArray;
+        System.out.println("Finished Resize");
+    }
     public int parent(int i){ //returns parent index
         return i/2;
     }
@@ -80,9 +97,9 @@ public class Heap<T> implements PriorityQueue<T> {
         if(size > 1){
 
             while(((Wrapper<T>)array[index]).getPriority() > ((Wrapper<T>)array[parent(index)]).getPriority()){
-                System.out.println("Now comparing the newest value and its parent");
-                System.out.println("Index value is"+((Wrapper<T>)array[index]).getPriority());
-                System.out.println("Parent index value is" + ((Wrapper<T>) array[parent(index)]).getPriority());
+                System.out.println("Now comparing value and its parent");
+                System.out.println("Index value is "+((Wrapper<T>)array[index]).getPriority());
+                System.out.println("Parent index value is " + ((Wrapper<T>) array[parent(index)]).getPriority());
                 swap(index, parent(index));
                 System.out.println("Swapping");
                 index = parent(index);
