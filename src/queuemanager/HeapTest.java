@@ -165,6 +165,21 @@ public class HeapTest extends PriorityQueueTest{
         instance.add(item,priority);
         System.out.println(instance.toString());
     }
+    @Test
+    public void testCapacity() throws Exception{ //Tests capacity of 5000, if this works then we know that the hole class works fine when it comes to add,resizing.
+        System.out.println("Testing capacity of queue");
+        Object item = new Person("Tom");
+        int priority = 0;
+        instance.add(item,priority);
+        for(int x=0;x<5000;x++){
+            priority = x;
+            instance.add(item,priority);
+        }
 
+        System.out.println(instance.toString());
+        System.out.println();
+        System.out.println("------------------------------------------------------------");
+        System.out.println();
+    }
 
 }
