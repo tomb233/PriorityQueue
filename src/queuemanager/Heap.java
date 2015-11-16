@@ -59,19 +59,19 @@ public class Heap<T> implements PriorityQueue<T> {
         System.out.println("Moving " + array[index2] + " to position at " + array[index1]);
     }
 
-    protected int parent(int i){ //returns parent index
+    public int parent(int i){ //returns parent index
         return i/2;
     }
-    protected int leftIndex(int i){ //returns index of a particular nodes left child
+    public int leftIndex(int i){ //returns index of a particular nodes left child
         return (i * 2)+1;
     }
-    protected boolean hasLeftChild(int i){ //return true if node has left child
+    public boolean hasLeftChild(int i){ //return true if node has left child
         return leftIndex(i) <= size;
     }
-    protected boolean hasRightChild(int i){ //return true if node has right child
+    public boolean hasRightChild(int i){ //return true if node has right child
         return rightIndex(i) <= size;
     }
-    protected int rightIndex(int i){ //returns index of a particular nodes right child
+    public int rightIndex(int i){ //returns index of a particular nodes right child
         return (i * 2) + 2;
     }
 
@@ -92,22 +92,22 @@ public class Heap<T> implements PriorityQueue<T> {
 
 
     protected void bubbleDown() { //Sorts out heap starting from root. Mainly used when removing the root
-            int index = 0;
-            while (hasLeftChild(index)) {
-                if(((Wrapper<T>)array[leftIndex(index)]) == null || ((Wrapper<T>)array[rightIndex(index)]) == null) { //Error catching code, stops nullpointexceptions when working with array
-                    break;
-                }
-                int biggerChild = leftIndex(index); //Defaults largest child to left as we fill the heap left to right
-                if (hasRightChild(index) && ((Wrapper<T>)array[leftIndex(index)]).getPriority() < ((Wrapper<T>)array[rightIndex(index)]).getPriority()   ) { //Changes largest child only if right child is larger than left child.
-                    biggerChild = rightIndex(index);
-                    System.out.println("right index selected");
-                }
-                    int parent = ((Wrapper<T>)array[index]).getPriority();
-                    int child = ((Wrapper<T>)array[biggerChild]).getPriority();
-                    if (parent < child) { // Decides if child is bigger than parent, if so swaps places
-                        swap(index, biggerChild);
-                    }
-                    index = biggerChild;// updates index to the index of the largest child
+        int index = 0;
+        while (hasLeftChild(index)) {
+            if(((Wrapper<T>)array[leftIndex(index)]) == null || ((Wrapper<T>)array[rightIndex(index)]) == null) { //Error catching code, stops nullpointexceptions when working with array
+                break;
+            }
+            int biggerChild = leftIndex(index); //Defaults largest child to left as we fill the heap left to right
+            if (hasRightChild(index) && ((Wrapper<T>)array[leftIndex(index)]).getPriority() < ((Wrapper<T>)array[rightIndex(index)]).getPriority()   ) { //Changes largest child only if right child is larger than left child.
+                biggerChild = rightIndex(index);
+                System.out.println("right index selected");
+            }
+            int parent = ((Wrapper<T>)array[index]).getPriority();
+            int child = ((Wrapper<T>)array[biggerChild]).getPriority();
+            if (parent < child) { // Decides if child is bigger than parent, if so swaps places
+                swap(index, biggerChild);
+            }
+            index = biggerChild;// updates index to the index of the largest child
         }
     }
     @Override
@@ -116,7 +116,7 @@ public class Heap<T> implements PriorityQueue<T> {
 
 
         int index = array.length - 1;
-
+        String result = "";
         System.out.print("heapArray: ");    // array format
         for(int m=0; m<=index; m++)
             if(array[m] != null)
@@ -129,6 +129,7 @@ public class Heap<T> implements PriorityQueue<T> {
                 System.out.println("Index is "+x);
                 System.out.print("Parent is ");
                 System.out.println(array[x]);
+                result += array[x]+ ", ";
                 System.out.print("Left Child is ");
                 System.out.println(array[leftIndex(x)]);
                 if(rightIndex(x) < array.length){
@@ -140,7 +141,7 @@ public class Heap<T> implements PriorityQueue<T> {
             }
 
         }
-        return null;
+        return result;
     }
 
 

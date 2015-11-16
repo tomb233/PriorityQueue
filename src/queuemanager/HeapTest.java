@@ -25,7 +25,7 @@ public class HeapTest extends PriorityQueueTest{
     @Before
     @Override
     public void setUp() throws Exception {
-        instance = new SortedLinkedPriorityQueue<>();
+        instance = new Heap<>(8);
 
 
 
@@ -53,9 +53,7 @@ public class HeapTest extends PriorityQueueTest{
         priority = 3;
         instance.add(item,priority);
         System.out.println(instance.toString());
-        item = new Person ("Charlie");
-        priority = 2;
-        instance.add(item,priority);
+
 
     }
     @Test
@@ -97,8 +95,9 @@ public class HeapTest extends PriorityQueueTest{
     public void testToString() throws Exception {
         System.out.println("Testing toString method of UnsortedPriorityQueue");
         addData();
-        String expResult = "List: Sarah, 7 | Tom, 5 | Ben, 3 | Charlie, 2 | John, 1 | ";
+        String expResult = "(Sarah, 7), (Tom, 5), (Ben, 3), ";
         String result = instance.toString();
+        System.out.println("Expected: "+expResult);
         System.out.println("Found: "+result);
         assertEquals(expResult, result);
         System.out.println();
@@ -117,7 +116,7 @@ public class HeapTest extends PriorityQueueTest{
         System.out.println("Removing two entries");
         instance.remove();
         instance.remove();
-        String expResult = "List: Ben, 3 | Charlie, 2 | John, 1 | ";
+        String expResult = "(Ben, 3), (Bill, 2), ";
         String result = instance.toString();
         System.out.println("Expected: "+expResult);
         System.out.println("Found: "+result);
@@ -136,24 +135,15 @@ public class HeapTest extends PriorityQueueTest{
         assertEquals(expResult, result);
     }
 
+
     @Test
-    public void testCapacity() throws Exception{ //Tests capacity of 5000 
-        System.out.println("Testing capacity of queue");
-        Object item = new Person("Tom");
-        int priority = 0;
-        instance.add(item,priority);
-        for(int x=0;x<5000;x++){
-            priority = x;
-            instance.add(item,priority);
-        }
+    public void testParent() throws Exception{
+        System.out.println("Testing internal code of heap.");
+        System.out.println("Test 1: hasParent()");
+        addData();
+        System.out.println();
 
-        System.out.println(instance.toString());
-        System.out.println();
-        System.out.println("------------------------------------------------------------");
-        System.out.println();
     }
-
-
 
 
 }
