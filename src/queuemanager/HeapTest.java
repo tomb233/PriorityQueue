@@ -58,7 +58,7 @@ public class HeapTest extends PriorityQueueTest{
     }
     @Test
     public void testAdd() throws Exception {
-        System.out.println("Testing Add Method of UnsortedPriorityQueue");
+        System.out.println("Testing Add Method of HeapPriorityQueue");
         addData(); //Adding some test data
 
 
@@ -73,7 +73,7 @@ public class HeapTest extends PriorityQueueTest{
     }
     @Test
     public void testHead() throws Exception {
-        System.out.println("Testing Head method of UnsortedPriorityQueue");
+        System.out.println("Testing Head method of HeapPriorityQueue");
         addData(); //Adding some test data
 
         int priority = 12;
@@ -93,7 +93,7 @@ public class HeapTest extends PriorityQueueTest{
 
     @Test
     public void testToString() throws Exception {
-        System.out.println("Testing toString method of UnsortedPriorityQueue");
+        System.out.println("Testing toString method of HeapPriorityQueue");
         addData();
         String expResult = "(Sarah, 7), (Tom, 5), (Ben, 3), ";
         String result = instance.toString();
@@ -107,7 +107,7 @@ public class HeapTest extends PriorityQueueTest{
     }
     @Test
     public void testRemove() throws Exception{
-        System.out.println("Testing Remove method of UnsortedPriorityQueue");
+        System.out.println("Testing Remove method of HeapPriorityQueue");
         System.out.println();
 
         System.out.println();

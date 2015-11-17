@@ -56,7 +56,7 @@ public class SortedArrayPriorityQueueTest extends PriorityQueueTest {
     }
     @Test
     public void testAdd() throws Exception {
-        System.out.println("Testing Add Method of UnsortedPriorityQueue");
+        System.out.println("Testing Add Method of sortedPriorityQueue");
         addData(); //Adding some test data
         System.out.println("Adding Prerequisite Data");
         System.out.println(instance.toString());
@@ -71,7 +71,7 @@ public class SortedArrayPriorityQueueTest extends PriorityQueueTest {
     }
     @Test
     public void testHead() throws Exception {
-        System.out.println("Testing Head method of UnsortedPriorityQueue");
+        System.out.println("Testing Head method of sortedPriorityQueue");
         addData(); //Adding some test data
         System.out.println("Adding Prerequisite Data");
         int priority = 12;
@@ -91,7 +91,7 @@ public class SortedArrayPriorityQueueTest extends PriorityQueueTest {
 
     @Test
     public void testToString() throws Exception {
-        System.out.println("Testing toString method of UnsortedPriorityQueue");
+        System.out.println("Testing toString method of sortedPriorityQueue");
         addData();
         String expResult = "[(Sarah, 7), (Tom, 5), (Ben, 3), (Bill, 2), (Charlie, 2), (John, 1)]";
         String result = instance.toString();
@@ -105,7 +105,7 @@ public class SortedArrayPriorityQueueTest extends PriorityQueueTest {
     }
     @Test
     public void testRemove() throws Exception{
-        System.out.println("Testing Remove method of UnsortedPriorityQueue");
+        System.out.println("Testing Remove method of sortedPriorityQueue");
         System.out.println();
         System.out.println("Adding test data");
         System.out.println();
@@ -128,7 +128,7 @@ public class SortedArrayPriorityQueueTest extends PriorityQueueTest {
     @Test
     public void isEmptyTest() throws Exception{
 
-
+        System.out.println("Testing isEmpty method of sortedPriorityQueue");
         boolean expResult = true;
         boolean result =  instance.isEmpty();
         assertEquals(expResult, result);

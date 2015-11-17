@@ -59,7 +59,7 @@ public class SortedLinkedPriorityQueueTest<T> extends PriorityQueueTest {
     }
     @Test
     public void testAdd() throws Exception {
-        System.out.println("Testing Add Method of UnsortedPriorityQueue");
+        System.out.println("Testing Add Method of sortedPriorityQueue");
         addData(); //Adding some test data
 
 
@@ -74,7 +74,7 @@ public class SortedLinkedPriorityQueueTest<T> extends PriorityQueueTest {
     }
     @Test
     public void testHead() throws Exception {
-        System.out.println("Testing Head method of UnsortedPriorityQueue");
+        System.out.println("Testing Head method of sortedPriorityQueue");
         addData(); //Adding some test data
 
         int priority = 12;
@@ -94,7 +94,7 @@ public class SortedLinkedPriorityQueueTest<T> extends PriorityQueueTest {
 
     @Test
     public void testToString() throws Exception {
-        System.out.println("Testing toString method of UnsortedPriorityQueue");
+        System.out.println("Testing toString method of sortedPriorityQueue");
         addData();
         String expResult = "List: Sarah, 7 | Tom, 5 | Ben, 3 | Charlie, 2 | John, 1 | ";
         String result = instance.toString();
@@ -107,7 +107,7 @@ public class SortedLinkedPriorityQueueTest<T> extends PriorityQueueTest {
     }
     @Test
     public void testRemove() throws Exception{
-        System.out.println("Testing Remove method of UnsortedPriorityQueue");
+        System.out.println("Testing Remove method of sortedPriorityQueue");
         System.out.println();
 
         System.out.println();
